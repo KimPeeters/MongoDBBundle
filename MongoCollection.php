@@ -20,7 +20,7 @@ class MongoCollection
 
 	public function findById( $id )
 	{
-		return $this->collection->find(array('_id'=> new \MongoId($id)));
+		return $this->collection->findOne(array('_id'=> new \MongoId($id)));
 	}
 
 	public function __call($name,$args)
