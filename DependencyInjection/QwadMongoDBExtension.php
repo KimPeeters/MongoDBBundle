@@ -22,9 +22,15 @@ class QwadMongoDBExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        $container->setParameter(
+            'qwad_mongo_db.server',
+            $config['server']
+	);
 
-	    $container->setParameter('qwad_mongo_db.server',$config['server']);
-	    $container->setParameter('qwad_mongo_db.database',$config['database']);
+        $container->setParameter(
+            'qwad_mongo_db.database',
+            $config['database']
+        );
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');

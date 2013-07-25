@@ -24,11 +24,18 @@ class Configuration implements ConfigurationInterface
 
 	    $rootNode
 		    ->children()
-			    ->scalarNode('server')->isRequired()->cannotBeEmpty()->end()
-			    ->scalarNode('database')->defaultValue('default')->end()
-		    ->end()
-		;
-
+                        ->scalarNode('server')
+                            ->defaultNull()
+                            ->isRequired()
+                                ->cannotBeEmpty()
+                        ->end()
+                        ->scalarNode('database')
+                            ->defaultValue('default')
+                            ->isRequired()
+                                ->cannotBeEmpty()
+                        ->end()
+                    ->end()
+        ;
         return $treeBuilder;
     }
 
