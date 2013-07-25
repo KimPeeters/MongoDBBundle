@@ -24,7 +24,7 @@ class Configuration implements ConfigurationInterface
 
 	    $rootNode
 		    ->children()
-			    ->scalarNode('server')->defaultNull()->end()
+			    ->scalarNode('server')->isRequired()->cannotBeEmpty()->end()
 			    ->scalarNode('database')->defaultValue('default')->end()
 		    ->end()
 		;
