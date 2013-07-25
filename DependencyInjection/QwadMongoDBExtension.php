@@ -22,22 +22,11 @@ class QwadMongoDBExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-	    if (!isset($config['server'])) {
-		    throw new \InvalidArgumentException(
-			    'The "server" option must be set'
-		    );
-	    }
 	    $container->setParameter(
 		    'qwad_mongo_db.server',
 		    $config['server']
 	    );
 
-
-	    if (!isset($config['database'])) {
-		    throw new \InvalidArgumentException(
-			    'The "database" option must be set'
-		    );
-	    }
 	    $container->setParameter(
 		    'qwad_mongo_db.database',
 		    $config['database']
