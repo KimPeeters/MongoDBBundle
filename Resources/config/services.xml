@@ -5,18 +5,18 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="qwad_mongo_db.connecor.class">Qwad\Bundle\MongoDBBundle\MongoConnection</parameter>
+        <parameter key="qwad_mongo_db.connection.class">Qwad\Bundle\MongoDBBundle\MongoConnection</parameter>
         <parameter key="qwad_mongo_db.manager.class">Qwad\Bundle\MongoDBBundle\MongoManager</parameter>
     </parameters>
 
     <services>
-        <service id="qwad_mongo_db.connector" class="%qwad_mongo_db.connecor.class%">
+        <service id="qwad_mongo_db.connection" class="%qwad_mongo_db.connection.class%">
             <argument>%qwad_mongo_db.server%</argument>
             <argument>%qwad_mongo_db.database%</argument>
         </service>
 
 	    <service id="qwad_mongo_db.manager" class="%qwad_mongo_db.manager.class%">
-		    <argument type="service" id="qwad_mongo_db.connector"></argument>
+		    <argument type="service" id="qwad_mongo_db.connection"></argument>
 	    </service>
 
     </services>
