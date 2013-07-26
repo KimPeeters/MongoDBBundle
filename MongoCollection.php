@@ -25,6 +25,6 @@ class MongoCollection
 
 	public function __call($name,$args)
 	{
-		return call_user_func_array($this->collection->$name,$args);
+		return call_user_func_array(array($this->collection,$name),$args);
 	}
 }
