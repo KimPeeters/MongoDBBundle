@@ -22,10 +22,17 @@ class QwadMongoDBExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        var_dump($configs);
+
         $container->setParameter(
             'qwad_mongo_db.server',
             $config['server']
-	);
+	    );
+
+        $container->setParameter(
+            'qwad_mongo_db.port',
+            $config['port']
+        );
 
         $container->setParameter(
             'qwad_mongo_db.database',

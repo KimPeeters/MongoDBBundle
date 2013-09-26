@@ -12,6 +12,7 @@
     <services>
         <service id="qwad_mongo_db.connection" class="%qwad_mongo_db.connection.class%">
             <argument>%qwad_mongo_db.server%</argument>
+            <argument>%qwad_mongo_db.port%</argument>
             <argument>%qwad_mongo_db.database%</argument>
         </service>
 

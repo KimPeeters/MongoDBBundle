@@ -10,13 +10,15 @@ namespace Qwad\Bundle\MongoDBBundle;
 class MongoConnection
 {
 	private $host;
+    private $port;
 	private $database;
 
 	private $connection;
 
-	public function __construct($host,$database)
+	public function __construct($host,$port,$database)
 	{
 		$this->host = $host;
+        $this->port = $port;
 		$this->database = $database;
 	}
 
@@ -30,7 +32,11 @@ class MongoConnection
 
 	private function connect()
 	{
-		$connection = new \MongoClient($this->host);
+        $connectionString = 'mongodb://'.$this->host;
+        if ( $this->port )
+            $connectionString .= ':'.$this->port;
+
+		$connection = new \MongoClient($connectionString);
 		if ( $connection )
 		{
 			$this->connection = $connection->{$this->database};
